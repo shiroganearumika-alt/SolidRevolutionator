@@ -14,10 +14,6 @@ run = ["npm", "run", "start"]
 localPort = 5000
 externalPort = 80
 
-[[ports]]
-localPort = 45895
-externalPort = 3000
-
 [workflows]
 runButton = "Project"
 
@@ -33,8 +29,7 @@ args = "Start Game"
 [[workflows.workflow]]
 name = "Start Game"
 author = "agent"
+mode = "sequential"
 
 [[workflows.workflow.tasks]]
-task = "shell.exec"
-args = "npm run dev"
-waitForPort = 5000
+task = "packager.installForAll"
